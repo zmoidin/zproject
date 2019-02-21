@@ -1,0 +1,1813 @@
+
+<div id="chart-wrapper" class="content-wrapper">
+   <div class="container-fluid">
+      <div class="row chart_trainer">
+
+         <div class="heading">
+            <div class="row" style="margin: 0;">
+               <div id="question_area">
+                  <div id="question_no"></div>
+                  <div class="row" id="timer_container">
+                     <div class="col-md-4" id="total_time"></div>
+                     <div class="col-md-4" id="remaining_time"></div>
+                     <div class="col-md-2" id="timer"></div>
+                     <div class="col-md-2"><input type="button" id="start" name="start" value="Start" onclick="startApplicantTest();" class="k-primary chart_trainer-btn hiddenbutton" /></div>
+                  </div>
+               </div>
+               <div class="message_section">
+                  <div id="message_area"></div>
+               </div>
+            </div>
+         </div>
+
+         <div class="col-md-12" id="chart_content">
+            <div class="row">
+
+               <div class="col-sm-6 padding-r trainer_left" style="display: none;">
+                  <div class="browser_height">
+                     <!-- CHART TRAINER CONTENT -->
+                     <div class="chart_trainer">
+                        <div class="browser_scroller">
+                           <ul id="chart_trainer_panelbar">
+
+                              <!-- DIAGNOSIS PANEL BAR -->
+                              <li class="panelbar" id="basicinformation">
+                                 <span class="k-link panelh">BASIC INFORMATION</span>
+                                 <div class="mt-2 B-info">
+                                    <div class="pause_overlay"></div>
+                                    <div class="col-lg-12 col-md-12 ">
+                                       <div class="row padding-bottom">
+                                          <div class="add_message"></div>
+                                          <div class="bg-column padding-top">
+                                             <div class="row">
+                                                <div class="col-md-8 padding-r margin-left">
+                                                   <div class="form-group diagnosiscontainer justify-content-start">
+                                                      <label class="ct_bi_label col-md-3 mt-1">Arrival Mode by EMS?</label>
+                                                      <div class="radio basic-radio">
+                                                         <input class="k-radio" type="radio" id="bi-yes" name="Arrival" value="yes" required />
+                                                         <label for="bi-yes" class="k-radio-label mb-0">
+                                                         <span>Yes</span>
+                                                         </label>
+                                                         <input class="k-radio" type="radio" id="bi-no" name="Arrival" value="No" required />
+                                                         <label for="bi-no" class="k-radio-label mb-0  mr-0">
+                                                         <span>No</span>
+                                                         </label>
+                                                      </div>
+                                                      <div class="col-md-3 padding-r">
+                                                        <input type="text" class="diagonisisList" placeholder="Diagnosis . . ." />
+                                                     </div>
+                                                     <div class="col-md-3 padding-r con2">
+                                                        <input type="text" class="diagonisisList" placeholder="Diagnosis . . ." />
+                                                      </div>
+                                                   </div>
+
+                                                   <div class="form-group diagnosiscontainer justify-content-start">
+                                                      <label class="ct_bi_label col-md-3 mt-1">Critical Care documented?</label>
+                                                      <div class="radio basic-radio">
+                                                         <input class="k-radio" type="radio" id="biMode-yes" name="Mode" value="yes" required />
+                                                         <label for="biMode-yes" class="k-radio-label mb-0">
+                                                         <span>Yes</span>
+                                                         </label>
+                                                         <input class="k-radio" type="radio" id="biMode-no" name="Mode" value="No" required />
+                                                         <label for="biMode-no" class="k-radio-label mb-0 mr-0">
+                                                         <span>No</span>
+                                                         </label>
+                                                      </div>
+                                                      <div class="col-md-3 padding-r">
+                                                        <input type="text" class="diagonisisList" placeholder="Diagnosis . . ." />
+                                                     </div>
+                                                     <div class="col-md-3 padding-r con2">
+                                                        <input type="text" class="diagonisisList" placeholder="Diagnosis . . ." />
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                                <div class="padding-l ct_bi_button btnDiv">
+                                                   <button class="k-primary chart_trainer-btn ct_bi_chart_trainer-btn " btn-data-id="BI">BI</button>
+                                                   <button class="k-primary chart_trainer-btn ct_bi_chart_trainer-btn " btn-data-id="I&P">I&P</button>
+                                                   <button class="k-primary chart_trainer-btn ct_bi_chart_trainer-btn " btn-data-id="ICD10">ICD10</button>
+                                                   <button class="k-primary chart_trainer-btn" btn-data-id="MDM">MDM</button>
+                                                   <button class="k-primary chart_trainer-btn" btn-data-id="ADD">ADD</button>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </li>
+
+                                                     
+                              <!-- DIAGNOSIS AND MANAGEMENT OPTIONS PANEL BAR -->
+                              <li class="show-details-content panelbar" id="dmoptions" data-id="DMO">
+                                 <span class="k-link panelh">DIAGNOSIS AND MANAGEMENT OPTIONS</span>
+                                 <div class="diagnosis-management">
+                                       <div class="pause_overlay"></div>
+                                       <div class="col-lg-12">
+                                          <div class="row">
+                                             <div class="add_message"></div>
+                                             <div class="bg-column">
+                                                <div class="form-group mb-0">
+                                                   <label>Is this a new or established problem?</label>
+                                                   <div class="radio">
+                                                      <input class="k-radio" type="radio" id="ct-new" name="diagnosis_mode" value="yes" required />
+                                                      <label for="ct-new" class="k-radio-label mb-0">
+                                                      <span>New</span>
+                                                      </label>
+                                                      <input class="k-radio" type="radio" id="ct-Established" name="diagnosis_mode" value="No" required />
+                                                      <label for="ct-Established" class="k-radio-label mb-0 mr-0">
+                                                      <span>Established</span>
+                                                      </label>
+                                                   </div>
+                                                   <div class="radio">
+                                                      <input class="k-radio" type="radio" id="Stable" name="damo_established_options" value="Stable" required />
+                                                      <label for="Stable" class="k-radio-label mb-0">
+                                                         <span>Stable</span>
+                                                      </label>
+                                                      <input class="k-radio" type="radio" id="Worsening" name="damo_established_options" value="Worsening" required />
+                                                      <label for="Worsening" class="k-radio-label mb-0 mr-0">
+                                                         <span>Worsening</span>
+                                                      </label>
+                                                   </div>
+                                                   <div class="btnDiv">
+                                                     <button class="k-primary chart_trainer-btn mb-0" btn-data-id="HPI">HPI</button>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                 </div>
+                              </li>
+
+                              <!-- AMOUNT AND COMPLEXITY OF DATA PANEL BAR-->
+                              <li class="show-details-content panelbar" id="amountcomplexitydata" data-id="ACD">
+                                 <span class="k-link panelh">AMOUNT AND COMPLEXITY OF DATA</span>
+                                 <div class="ct-acod mt-2">
+                                    <div class="pause_overlay"></div>
+                                    <div class="col-lg-12 p-0">
+                                       <div class="">
+                                          <div class="bg-column p-0">
+                                             <div id="AAC">
+                                                <ul>
+                                                   <li class="k-state-active" inner-data-id="AAC_SS">
+                                                      Special Studies
+                                                   </li>
+                                                   <li inner-data-id="AAC_AS">
+                                                      Ancillary Studies
+                                                   </li>
+                                                   <li inner-data-id="AAC_OT">
+                                                      Other Information
+                                                   </li>
+                                                   <!-- <li>
+                                                      Medication
+                                                   </li> -->
+                                                </ul>
+                                                <!-- SPECIAL STUDIES -->
+                                                <div class="special_studies">
+                                                   <div class="row">
+                                                      <div class="col-md-5 padding-r">
+                                                         <div class="form-group">
+                                                            <div class="radio-bg">
+                                                               <label class="">CT</label>
+                                                               <div class="radio radio-bg-none">
+                                                                  <input class="k-radio" type="radio" id="SSCT-0" name="SSCT" value="0" required checked="checked"/>
+                                                                  <label for="SSCT-0" class="k-radio-label mb-0 ">
+                                                                  <span>0</span>
+                                                                  </label>
+                                                                  <input class="k-radio" type="radio" id="SSCT-1" name="SSCT" value="1" required />
+                                                                  <label for="SSCT-1" class="k-radio-label mb-0">
+                                                                  <span>1</span>
+                                                                  </label>
+                                                                  <input class="k-radio" type="radio" id="SSCT-2" name="SSCT" value="2" required />
+                                                                  <label for="SSCT-2" class="k-radio-label mb-0 mr-0">
+                                                                  <span>2+</span>
+                                                                  </label>
+                                                               </div>
+                                                            </div>
+                                                         </div>
+                                                         <div class="form-group">
+                                                            <div class="radio-bg">
+                                                               <label>US</label>
+                                                               <div class="radio radio-bg-none">
+                                                                  <input class="k-radio" type="radio" id="SSUS-0" name="SSUS" value="0" required checked="checked" />
+                                                                  <label for="SSUS-0" class="k-radio-label mb-0 ">
+                                                                  <span>0</span>
+                                                                  </label>
+                                                                  <input class="k-radio" type="radio" id="SSUS-1" name="SSUS" value="1" required />
+                                                                  <label for="SSUS-1" class="k-radio-label mb-0 ">
+                                                                  <span>1</span>
+                                                                  </label>
+                                                                  <input class="k-radio" type="radio" id="SSUS-2" name="SSUS" value="2" required />
+                                                                  <label for="SSUS-2" class="k-radio-label mb-0 mr-0">
+                                                                  <span>2+</span>
+                                                                  </label>
+                                                               </div>
+                                                            </div>
+                                                         </div>
+                                                         <div class="form-group">
+                                                            <div class="radio-bg">
+                                                               <label>MRI/MRA</label>
+                                                               <div class="radio radio-bg-none">
+                                                                  <input class="k-radio" type="radio" id="SSMRI-0" name="SSMRI" value="0" required checked="checked" />
+                                                                  <label for="SSMRI-0" class="k-radio-label mb-0 ">
+                                                                  <span>0</span>
+                                                                  </label>
+                                                                  <input class="k-radio" type="radio" id="SSMRI-1" name="SSMRI" value="1" required />
+                                                                  <label for="SSMRI-1" class="k-radio-label mb-0 ">
+                                                                  <span>1</span>
+                                                                  </label>
+                                                                  <input class="k-radio" type="radio" id="SSMRI-2" name="SSMRI" value="2" required />
+                                                                  <label for="SSMRI-2" class="k-radio-label mb-0 mr-0">
+                                                                  <span>2+</span>
+                                                                  </label>
+                                                               </div>
+                                                            </div>
+                                                         </div>
+                                                         <div class="form-group">
+                                                            <div class="radio-bg">
+                                                               <label>V/Q Scans</label>
+                                                               <div class="radio radio-bg-none">
+                                                                  <input class="k-radio" type="radio" id="SSScans-0" name="SSScans" value="0" required checked="checked" />
+                                                                  <label for="SSScans-0" class="k-radio-label mb-0 ">
+                                                                  <span>0</span>
+                                                                  </label>
+                                                                  <input class="k-radio" type="radio" id="SSScans-1" name="SSScans" value="1" required />
+                                                                  <label for="SSScans-1" class="k-radio-label mb-0 ">
+                                                                  <span>1</span>
+                                                                  </label>
+                                                                  <input class="k-radio" type="radio" id="SSScans-2" name="SSScans" value="2" required />
+                                                                  <label for="SSScans-2" class="k-radio-label mb-0 mr-0">
+                                                                  <span>2+</span>
+                                                                  </label>
+                                                               </div>
+                                                            </div>
+                                                         </div>
+                                                      </div>
+                                                      <div class="col-md-5 padding-l padding-r">
+                                                         <div class="form-group">
+                                                            <div class="radio-bg">
+                                                               <label for="">Tonometry</label>
+                                                               <div class="radio radio-bg-none">
+                                                                  <input class="k-radio" type="radio" id="SStonometry-0" name="SStonometry" value="0" required checked="checked" />
+                                                                  <label for="SStonometry-0" class="k-radio-label mb-0 ">
+                                                                  <span>0</span>
+                                                                  </label>
+                                                                  <input class="k-radio" type="radio" id="SStonometry-1" name="SStonometry" value="1" required />
+                                                                  <label for="SStonometry-1" class="k-radio-label mb-0 ">
+                                                                  <span>1</span>
+                                                                  </label>
+                                                                  <input class="k-radio" type="radio" id="SStonometry-2" name="SStonometry" value="2" required />
+                                                                  <label for="SStonometry-2" class="k-radio-label mb-0 mr-0">
+                                                                  <span>2+</span>
+                                                                  </label>
+                                                               </div>
+                                                            </div>
+                                                         </div>
+                                                         <div class="form-group">
+                                                            <div class="radio-bg">
+                                                               <label for="">Doppler Studies</label>
+                                                               <div class="radio radio-bg-none">
+                                                                  <input class="k-radio" type="radio" id="SSDoppler-0" name="SSDoppler" value="0" required checked="checked" />
+                                                                  <label for="SSDoppler-0" class="k-radio-label mb-0 ">
+                                                                  <span>0</span>
+                                                                  </label>
+                                                                  <input class="k-radio" type="radio" id="SSDoppler-1" name="SSDoppler" value="1" required />
+                                                                  <label for="SSDoppler-1" class="k-radio-label mb-0 ">
+                                                                  <span>1</span>
+                                                                  </label>
+                                                                  <input class="k-radio" type="radio" id="SSDoppler-2" name="SSDoppler" value="2" required />
+                                                                  <label for="SSDoppler-2" class="k-radio-label mb-0 mr-0">
+                                                                  <span>2+</span>
+                                                                  </label>
+                                                               </div>
+                                                            </div>
+                                                         </div>
+                                                         <div class="form-group">
+                                                            <div class="radio-bg">
+                                                               <label for="">Other</label>
+                                                               <div class="radio radio-bg-none">
+                                                                  <input class="k-radio" type="radio" id="SSOther-0" name="SSOther" value="0" required checked="checked" />
+                                                                  <label for="SSOther-0" class="k-radio-label mb-0 ">
+                                                                  <span>0</span>
+                                                                  </label>
+                                                                  <input class="k-radio" type="radio" id="SSOther-1" name="SSOther" value="1" required />
+                                                                  <label for="SSOther-1" class="k-radio-label mb-0 ">
+                                                                  <span>1</span>
+                                                                  </label>
+                                                                  <input class="k-radio" type="radio" id="SSOther-2" name="SSOther" value="2" required />
+                                                                  <label for="SSOther-2" class="k-radio-label mb-0 mr-0">
+                                                                  <span>2+</span>
+                                                                  </label>
+                                                               </div>
+                                                            </div>
+                                                         </div>
+                                                      </div>
+                                                      <div class="col-md-2 padding-l btnDiv">
+                                                         <button class="k-primary chart_trainer-btn" btn-data-id="ORD">ORD</button>
+                                                         <button class="k-primary chart_trainer-btn" btn-data-id="MDM">MDM</button>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                                <!-- SPECIAL STUDIES END -->
+                                                <!-- ANCILLARY STUDIES -->
+                                                <div class="ancillary_studies">
+                                                   <div class="row">
+                                                      <div class="col-md-10 padding-r">
+                                                         <div class="form-group">
+                                                            <label for="">Labs | ABG</label>
+                                                            <div class="radio radio-bg-none">
+                                                               <div class="radio-bg">
+                                                                  <input class="k-radio" type="radio" id="ASLabs-0" name="ASLabs" value="0" required checked="checked" />
+                                                                  <label for="ASLabs-0" class="k-radio-label mb-0">
+                                                                  <span>0</span>
+                                                                  </label>
+                                                                  <input class="k-radio" type="radio" id="ASLabs-1" name="ASLabs" value="1" required />
+                                                                  <label for="ASLabs-1" class="k-radio-label mb-0">
+                                                                  <span>1</span>
+                                                                  </label>
+                                                                  <input class="k-radio" type="radio" id="ASLabs-2" name="ASLabs" value="2" required />
+                                                                  <label for="ASLabs-2" class="k-radio-label mb-0">
+                                                                  <span>2</span>
+                                                                  </label>
+                                                                  <input class="k-radio" type="radio" id="ASLabs-3" name="ASLabs" value="3" required />
+                                                                  <label for="ASLabs-3" class="k-radio-label mb-0">
+                                                                  <span>3</span>
+                                                                  </label>
+                                                                  <input class="k-radio" type="radio" id="ASLabs-4" name="ASLabs" value="4" required />
+                                                                  <label for="ASLabs-4" class="k-radio-label mb-0 mr-0">
+                                                                  <span>4+</span>
+                                                                  </label>
+                                                               </div>
+                                                            </div>
+                                                         </div>
+                                                         <div class="form-group">
+                                                            <label for="">Labs | Blood Cultures</label>
+                                                            <div class="radio radio-bg-none">
+                                                               <div class="radio-bg">
+                                                                  <input class="k-radio" type="radio" id="ASLBC-0" name="ASLBC" value="0" required checked="checked" />
+                                                                  <label for="ASLBC-0" class="k-radio-label mb-0">
+                                                                  <span>0</span>
+                                                                  </label>
+                                                                  <input class="k-radio" type="radio" id="ASLBC-1" name="ASLBC" value="1" required />
+                                                                  <label for="ASLBC-1" class="k-radio-label mb-0">
+                                                                  <span>1</span>
+                                                                  </label>
+                                                                  <input class="k-radio" type="radio" id="ASLBC-2" name="ASLBC" value="2" required />
+                                                                  <label for="ASLBC-2" class="k-radio-label mb-0">
+                                                                  <span>2</span>
+                                                                  </label>
+                                                                  <input class="k-radio" type="radio" id="ASLBC-3" name="ASLBC" value="3" required />
+                                                                  <label for="ASLBC-3" class="k-radio-label mb-0">
+                                                                  <span>3</span>
+                                                                  </label>
+                                                                  <input class="k-radio" type="radio" id="ASLBC-4" name="ASLBC" value="4" required />
+                                                                  <label for="ASLBC-4" class="k-radio-label mb-0 mr-0">
+                                                                  <span>4+</span>
+                                                                  </label>
+                                                               </div>
+                                                            </div>
+                                                         </div>
+                                                         <div class="form-group">
+                                                            <label for="">Labs | Other</label>
+                                                            <div class="radio radio-bg-none">
+                                                               <div class="radio-bg">
+                                                                  <input class="k-radio" type="radio" id="ASLO-0" name="ASLO" value="0" required checked="checked" />
+                                                                  <label for="ASLO-0" class="k-radio-label mb-0">
+                                                                  <span>0</span>
+                                                                  </label>
+                                                                  <input class="k-radio" type="radio" id="ASLO-1" name="ASLO" value="1" required />
+                                                                  <label for="ASLO-1" class="k-radio-label mb-0">
+                                                                  <span>1</span>
+                                                                  </label>
+                                                                  <input class="k-radio" type="radio" id="ASLO-2" name="ASLO" value="2" required />
+                                                                  <label for="ASLO-2" class="k-radio-label mb-0">
+                                                                  <span>2</span>
+                                                                  </label>
+                                                                  <input class="k-radio" type="radio" id="ASLO-3" name="ASLO" value="3" required />
+                                                                  <label for="ASLO-3" class="k-radio-label mb-0">
+                                                                  <span>3</span>
+                                                                  </label>
+                                                                  <input class="k-radio" type="radio" id="ASLO-4" name="ASLO" value="4" required />
+                                                                  <label for="ASLO-4" class="k-radio-label mb-0 mr-0">
+                                                                  <span>4+</span>
+                                                                  </label>
+                                                               </div>
+                                                            </div>
+                                                         </div>
+                                                         <div class="form-group">
+                                                            <label for="">X-Ray</label>
+                                                            <div class="radio radio-bg-none">
+                                                               <div class="radio-bg">
+                                                                  <input class="k-radio" type="radio" id="ASXRay-0" name="ASXRay" value="0" required checked="checked" />
+                                                                  <label for="ASXRay-0" class="k-radio-label mb-0">
+                                                                  <span>0</span>
+                                                                  </label>
+                                                                  <input class="k-radio" type="radio" id="ASXRay-1" name="ASXRay" value="1" required />
+                                                                  <label for="ASXRay-1" class="k-radio-label mb-0">
+                                                                  <span>1</span>
+                                                                  </label>
+                                                                  <input class="k-radio" type="radio" id="ASXRay-2" name="ASXRay" value="2" required />
+                                                                  <label for="ASXRay-2" class="k-radio-label mb-0">
+                                                                  <span>2</span>
+                                                                  </label>
+                                                                  <input class="k-radio" type="radio" id="ASXRay-3" name="ASXRay" value="3" required />
+                                                                  <label for="ASXRay-3" class="k-radio-label mb-0">
+                                                                  <span>3</span>
+                                                                  </label>
+                                                                  <input class="k-radio" type="radio" id="ASXRay-4" name="ASXRay" value="4" required />
+                                                                  <label for="ASXRay-4" class="k-radio-label mb-0 mr-0">
+                                                                  <span>4+</span>
+                                                                  </label>
+                                                               </div>
+                                                            </div>
+                                                         </div>
+                                                         <div class="form-group">
+                                                            <label for="">EKG</label>
+                                                            <div class="radio radio-bg-none">
+                                                               <div class="radio-bg">
+                                                                  <input class="k-radio" type="radio" id="ASEKG-0" name="ASEKG" value="0" required checked="checked" />
+                                                                  <label for="ASEKG-0" class="k-radio-label mb-0">
+                                                                  <span>0</span>
+                                                                  </label>
+                                                                  <input class="k-radio" type="radio" id="ASEKG-1" name="ASEKG" value="1" required />
+                                                                  <label for="ASEKG-1" class="k-radio-label mb-0">
+                                                                  <span>1</span>
+                                                                  </label>
+                                                                  <input class="k-radio" type="radio" id="ASEKG-2" name="ASEKG" value="2" required />
+                                                                  <label for="ASEKG-2" class="k-radio-label mb-0">
+                                                                  <span>2</span>
+                                                                  </label>
+                                                                  <input class="k-radio" type="radio" id="ASEKG-3" name="ASEKG" value="3" required />
+                                                                  <label for="ASEKG-3" class="k-radio-label mb-0">
+                                                                  <span>3</span>
+                                                                  </label>
+                                                                  <input class="k-radio" type="radio" id="ASEKG-4" name="ASEKG" value="4" required />
+                                                                  <label for="ASEKG-4" class="k-radio-label mb-0 mr-0">
+                                                                  <span>4+</span>
+                                                                  </label>
+                                                               </div>
+                                                            </div>
+                                                         </div>
+                                                      </div>
+                                                      <div class="col-md-2 padding-l btnDiv">
+                                                         <button class="k-primary chart_trainer-btn" btn-data-id="ORD">ORD</button>
+                                                         <button class="k-primary chart_trainer-btn" btn-data-id="MDM">MDM</button>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                                <!-- ANCILLARY STUDIES END-->
+                                                <!-- OTHER INFORMATION -->
+                                                <div class="other-information">
+                                                   <div class="row">
+                                                      <div class="col-md-10 padding-r">
+                                                         <div class="form-group">
+                                                            <label for="">Discussion of diagnostic studies with interpreting physician:</label>
+                                                            <div class="radio radio-bg-none">
+                                                               <div class="radio-bg">
+                                                                  <input class="k-radio" type="radio" id="otherI-No" name="other_disc" value="No" required checked="checked" />
+                                                                  <label for="otherI-No" class="k-radio-label mb-0">
+                                                                  <span>No</span>
+                                                                  </label>
+                                                                  <input class="k-radio" type="radio" id="otherI-Yes" name="other_disc" value="Yes" required />
+                                                                  <label for="otherI-Yes" class="k-radio-label mb-0 mr-0">
+                                                                  <span>Yes</span>
+                                                                  </label>
+                                                               </div>
+                                                            </div>
+                                                         </div>
+                                                         <div class="form-group">
+                                                            <label for="">Independent review of diagnostic studies with interpretation:</label>
+                                                            <div class="radio radio-bg-none">
+                                                               <div class="radio-bg">
+                                                                  <input class="k-radio" type="radio" id="otherI2-no" name="other_ind" value="No" required checked="checked" />
+                                                                  <label for="otherI2-no" class="k-radio-label mb-0">
+                                                                  <span>No</span>
+                                                                  </label>
+                                                                  <input class="k-radio" type="radio" id="otherI2-yes" name="other_ind" value="Yes" required />
+                                                                  <label for="otherI2-yes" class="k-radio-label mb-0 mr-0">
+                                                                  <span>Yes</span>
+                                                                  </label>
+                                                               </div>
+                                                            </div>
+                                                         </div>
+                                                         <div class="form-group">
+                                                            <label for="">Decision to obtain old records and/or gather data from source other than patient:</label>
+                                                            <div class="radio radio-bg-none">
+                                                               <div class="radio-bg">
+                                                                  <input class="k-radio" type="radio" id="otherI3-no" name="other_old" value="No" required checked="checked" />
+                                                                  <label for="otherI3-no" class="k-radio-label mb-0">
+                                                                  <span>No</span>
+                                                                  </label>
+                                                                  <input class="k-radio" type="radio" id="otherI3-yes" name="other_old" value="Yes" required />
+                                                                  <label for="otherI3-yes" class="k-radio-label mb-0 mr-0">
+                                                                  <span>Yes</span>
+                                                                  </label>
+                                                               </div>
+                                                            </div>
+                                                         </div>
+                                                         <div class="form-group">
+                                                            <label for="">Review and summarization of old medical records or other data OR discussion w/another HC provider</label>
+                                                            <div class="radio radio-bg-none">
+                                                               <div class="radio-bg">
+                                                                  <input class="k-radio" type="radio" id="otherI4-No" name="other_rev" value="No" required checked="checked" />
+                                                                  <label for="otherI4-No" class="k-radio-label mb-0">
+                                                                  <span>No</span>
+                                                                  </label>
+                                                                  <input class="k-radio" type="radio" id="otherI4-Yes" name="other_rev" value="Yes" required />
+                                                                  <label for="otherI4-Yes" class="k-radio-label mb-0 mr-0">
+                                                                  <span>Yes</span>
+                                                                  </label>
+                                                               </div>
+                                                            </div>
+                                                         </div>
+                                                         <div class="form-group">
+                                                            <label for="">Fever ≥ 100.5°F or 38.0°C documented in the ED:</label>
+                                                            <div class="radio radio-bg-none">
+                                                               <div class="radio-bg">
+                                                                  <input class="k-radio" type="radio" id="otherI5-no" name="other_fev" value="No" required checked="checked" />
+                                                                  <label for="otherI5-no" class="k-radio-label mb-0">
+                                                                  <span>No</span>
+                                                                  </label>
+                                                                  <input class="k-radio" type="radio" id="otherI5-yes" name="other_fev" value="Yes" required />
+                                                                  <label for="otherI5-yes" class="k-radio-label mb-0 mr-0">
+                                                                  <span>Yes</span>
+                                                                  </label>
+                                                               </div>
+                                                            </div>
+                                                         </div>
+                                                      </div>
+                                                      <div class="col-md-2 padding-l btnDiv">
+                                                         <button class="k-primary chart_trainer-btn" btn-data-id="ORD">ORD</button>
+                                                         <button class="k-primary chart_trainer-btn" btn-data-id="MDM">MDM</button>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                                <!-- OTHER INFORMATION END -->
+                                                
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </li>
+
+                              <!-- OVERALL RISK PANEL BAR -->
+                              <li class="show-details-content panelbar" id="overallrisks" data-id="ORT">
+                                 <span class="k-link panelh">OVERALL RISK</span>
+                                 <div id="over-all">
+                                    <ul>
+                                       <li inner-data-id="MED" class="k-state-active">Medication</li>
+                                       <li inner-data-id="DSGCC">DuvaSawko Guidelines for Coding Consistency</li>
+                                    </ul>
+                                    <!-- MEDICATION -->
+                                    <div class="medication">
+                                       <div class="pause_overlay"></div>
+                                       <div class="row" style="margin: 0;">
+                                          <div class="col-md-9">
+                                             <div class="form-group">
+                                                <label for="">IV fluids</label>
+                                                <div class="radio radio-bg-none">
+                                                   <div class="radio-bg">
+                                                      <input class="k-radio medication_radio" type="radio" id="MIV-fluids-yes" name="IV-FLUIDS" value="Y" />
+                                                      <label for="MIV-fluids-yes" class="k-radio-label mb-0">
+                                                      <span>Yes</span>
+                                                      </label>
+                                                      <input class="k-radio medication_radio" type="radio" id="MIV-fluids-no" name="IV-FLUIDS" value="N" checked="checked" />
+                                                      <label for="MIV-fluids-no" class="k-radio-label mb-0 mr-0">
+                                                      <span>No</span>
+                                                      </label>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                             <div class="form-group">
+                                                <label for="">Oral, rectal, eye, ear, nasal or topical meds given in ED</label>
+                                                <div class="radio radio-bg-none">
+                                                   <div class="radio-bg">
+                                                      <input class="k-radio medication_radio" type="radio" id="MIV-fluids2-yes" name="OREE" value="Y" />
+                                                      <label for="MIV-fluids2-yes" class="k-radio-label mb-0">
+                                                      <span>Yes</span>
+                                                      </label>
+                                                      <input class="k-radio medication_radio" type="radio" id="MIV-fluids2-no" name="OREE" value="N" checked="checked" />
+                                                      <label for="MIV-fluids2-no" class="k-radio-label mb-0 mr-0">
+                                                      <span>No</span>
+                                                      </label>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                             <div class="form-group">
+                                                <label for="">Rx given on discharge</label>
+                                                <div class="radio radio-bg-none">
+                                                   <div class="radio-bg">
+                                                      <input class="k-radio medication_radio" type="radio" id="MRx-yes" name="RX" value="Y" />
+                                                      <label for="MRx-yes" class="k-radio-label mb-0">
+                                                      <span>Yes</span>
+                                                      </label>
+                                                      <input class="k-radio medication_radio" type="radio" id="MRx-no" name="RX" value="N" checked="checked" />
+                                                      <label for="MRx-no" class="k-radio-label mb-0 mr-0">
+                                                      <span>No</span>
+                                                      </label>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                             <div><p>Select the number of each type of medication given below:</p></div>
+                                             <div class="form-group">
+                                                <label for="">IV medication (non-controlled)</label>
+                                                <div class="radio radio-bg-none">
+                                                   <div class="radio-bg">
+                                                      <input class="k-radio medication_radio" type="radio" id="IV_medication-0" name="IV-MED-NC" value="0" checked="checked" />
+                                                      <label for="IV_medication-0" class="k-radio-label mb-0">
+                                                      <span>0</span>
+                                                      </label>
+                                                      <input class="k-radio medication_radio" type="radio" id="IV_medication-1" name="IV-MED-NC" value="1" />
+                                                      <label for="IV_medication-1" class="k-radio-label mb-0">
+                                                      <span>1</span>
+                                                      </label>
+                                                      <input class="k-radio medication_radio" type="radio" id="IV_medication-2" name="IV-MED-NC" value="2" />
+                                                      <label for="IV_medication-2" class="k-radio-label mb-0">
+                                                      <span>2</span>
+                                                      </label>
+                                                      <input class="k-radio medication_radio" type="radio" id="IV_medication-3" name="IV-MED-NC" value="3" />
+                                                      <label for="IV_medication-3" class="k-radio-label mb-0 mr-0">
+                                                      <span>3+</span>
+                                                      </label>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                             <div class="form-group">
+                                                <label for="">IV medication (controlled)</label>
+                                                <div class="radio radio-bg-none">
+                                                   <div class="radio-bg">
+                                                      <input class="k-radio medication_radio" type="radio" id="IV_medication2-0" name="IV-MED-C" value="0" checked="checked" />
+                                                      <label for="IV_medication2-0" class="k-radio-label mb-0">
+                                                      <span>0</span>
+                                                      </label>
+                                                      <input class="k-radio medication_radio" type="radio" id="IV_medication2-1" name="IV-MED-C" value="1" />
+                                                      <label for="IV_medication2-1" class="k-radio-label mb-0">
+                                                      <span>1</span>
+                                                      </label>
+                                                      <input class="k-radio medication_radio" type="radio" id="IV_medication2-2" name="IV-MED-C" value="2" />
+                                                      <label for="IV_medication2-2" class="k-radio-label mb-0">
+                                                      <span>2</span>
+                                                      </label>
+                                                      <input class="k-radio medication_radio" type="radio" id="IV_medication2-3" name="IV-MED-C" value="3" />
+                                                      <label for="IV_medication2-3" class="k-radio-label mb-0 mr-0">
+                                                      <span>3+</span>
+                                                      </label>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                             <div class="form-group">
+                                                <label for="">IM/SQ medication (non-controlled)</label>
+                                                <div class="radio radio-bg-none">
+                                                   <div class="radio-bg">
+                                                      <input class="k-radio medication_radio" type="radio" id="IV_medication3-0" name="IM-MED-NC" value="0" checked="checked" />
+                                                      <label for="IV_medication3-0" class="k-radio-label mb-0">
+                                                      <span>0</span>
+                                                      </label>
+                                                      <input class="k-radio medication_radio" type="radio" id="IV_medication3-1" name="IM-MED-NC" value="1" />
+                                                      <label for="IV_medication3-1" class="k-radio-label mb-0">
+                                                      <span>1</span>
+                                                      </label>
+                                                      <input class="k-radio medication_radio" type="radio" id="IV_medication3-2" name="IM-MED-NC" value="2" />
+                                                      <label for="IV_medication3-2" class="k-radio-label mb-0">
+                                                      <span>2</span>
+                                                      </label>
+                                                      <input class="k-radio medication_radio" type="radio" id="IV_medication3-3" name="IM-MED-NC" value="3" />
+                                                      <label for="IV_medication3-3" class="k-radio-label mb-0 mr-0">
+                                                      <span>3+</span>
+                                                      </label>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                             <div class="form-group">
+                                                <label for="">IM/SQ medication (controlled)</label>
+                                                <div class="radio radio-bg-none">
+                                                   <div class="radio-bg">
+                                                      <input class="k-radio medication_radio" type="radio" id="IV_medication4-0" name="IM-MED-C" value="0" checked="checked" />
+                                                      <label for="IV_medication4-0" class="k-radio-label mb-0">
+                                                      <span>0</span>
+                                                      </label>
+                                                      <input class="k-radio medication_radio" type="radio" id="IV_medication4-1" name="IM-MED-C" value="1" />
+                                                      <label for="IV_medication4-1" class="k-radio-label mb-0">
+                                                      <span>1</span>
+                                                      </label>
+                                                      <input class="k-radio medication_radio" type="radio" id="IV_medication4-2" name="IM-MED-C" value="2" />
+                                                      <label for="IV_medication4-2" class="k-radio-label mb-0">
+                                                      <span>2</span>
+                                                      </label>
+                                                      <input class="k-radio medication_radio" type="radio" id="IV_medication4-3" name="IM-MED-C" value="3" />
+                                                      <label for="IV_medication4-3" class="k-radio-label mb-0 mr-0">
+                                                      <span>3+</span>
+                                                      </label>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                             <div class="form-group">
+                                                   <label>Nebulizer medication</label>
+                                                   <div class="radio radio-bg-none">
+                                                      <div class="radio-bg">
+                                                         <input class="k-radio medication_radio" type="radio" id="find_nebulizer_medication0" name="NB-MED" value="0" checked="checked" />
+                                                         <label for="find_nebulizer_medication0" class="k-radio-label mb-0 nebu1">
+                                                         <span>0</span>
+                                                         </label>
+                                                         <input class="k-radio medication_radio" type="radio" id="find_nebulizer_medication1" name="NB-MED" value="1" />
+                                                         <label for="find_nebulizer_medication1" class="k-radio-label mb-0 nebu2">
+                                                         <span>1</span>
+                                                         </label>
+                                                         <input class="k-radio medication_radio" type="radio" id="find_nebulizer_medication2" name="NB-MED" value="2" />
+                                                         <label for="find_nebulizer_medication2" class="k-radio-label mb-0">
+                                                         <span>2+(DuoNeb)</span>
+                                                         </label>
+                                                      </div>
+                                                   </div>
+                                             </div>
+                                          </div>
+                                          <div class="col-md-3 btnDiv">
+                                             <button class="k-primary chart_trainer-btn" btn-data-id="ORD">ORD</button>
+                                             <button class="k-primary chart_trainer-btn" btn-data-id="I&P">I&P</button>
+                                             <button class="k-primary chart_trainer-btn" btn-data-id="MDM">MDM</button>
+                                             <button class="k-primary chart_trainer-btn" btn-data-id="ADD">ADD</button>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <!-- MEDICATION END -->
+
+                                    <div class="ct-overall-risks" style="border-radius: 0;">
+                                       <div class="pause_overlay"></div>
+                                       <div class="pt-0">
+                                          <div class="overallgraybg">
+                                              <div class="form-group">
+                                                <div class="col-md-9 dsgccleft">
+                                                   <div class="row">
+                                                      <div class="col-md-12">
+                                                         <div class="radio radio-bg-none">
+                                                            <div class="radio-bg full-width">
+                                                               <input class="k-radio" type="radio" id="a1" name="dsgcc_level" value="1" checked />
+                                                               <label for="a1" class="k-radio-label mb-0">
+                                                               <span>All</span>
+                                                               </label>
+                                                               <input class="k-radio" type="radio" id="a2" name="dsgcc_level" value="Minimal" />
+                                                               <label for="a2" class="k-radio-label mb-0 mr-0">
+                                                               <span>Minimal</span>
+                                                               </label>
+                                                               <input class="k-radio" type="radio" id="a3" name="dsgcc_level" value="Low" />
+                                                               <label for="a3" class="k-radio-label mb-0 mr-0">
+                                                               <span>Low</span>
+                                                               </label>
+                                                               <input class="k-radio" type="radio" id="a4" name="dsgcc_level" value="Low Moderate" />
+                                                               <label for="a4" class="k-radio-label mb-0 mr-0">
+                                                               <span>Low Moderate</span>
+                                                               </label>
+                                                               <input class="k-radio" type="radio" id="a5" name="dsgcc_level" value="High Moderate" />
+                                                               <label for="a5" class="k-radio-label mb-0 mr-0">
+                                                               <span>High Moderate</span>
+                                                               </label>
+                                                               <input class="k-radio" type="radio" id="a6" name="dsgcc_level" value="High" />
+                                                               <label for="a6" class="k-radio-label mb-0 mr-0">
+                                                               <span>High</span>
+                                                               </label>
+                                                               <input class="k-radio" type="radio" id="a7" name="dsgcc_level" value="Critical Care" />
+                                                               <label for="a7" class="k-radio-label mb-0 mr-0">
+                                                               <span> Critical Care</span>
+                                                               </label>
+                                                            </div>
+                                                         </div>
+                                                      </div>
+                                                   </div>
+                                                   <div class="row">
+                                                      <div class="col-md-6 form-group">
+                                                         <input type="text" class="dsgcc_search" id="search_dsgcc" name="search_dsgcc" placeholder="Enter a Keyword..">
+                                                      </div>
+                                                      <div class="col-md-6 form-group">
+                                                         <input type="text" class="dsgcc_search" id="search_dsgcc1" name="search_dsgcc1" placeholder="Enter a Keyword..">
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                                <div class="col-md-3 dsgccbtn btnDiv dsgccright">
+                                                   <div>
+                                                      <button class="k-primary chart_trainer-btn ml-2 small-btn" btn-data-id="I&P">I&P</button>
+                                                      <button class="k-primary chart_trainer-btn ml-2 small-btn" btn-data-id="ORD">ORD</button>
+                                                   </div>
+                                                   <div class="clearfix"></div>
+                                                   <div>
+                                                      <button class="k-primary chart_trainer-btn ml-2 small-btn" btn-data-id="ADD">ADD</button> 
+                                                      <button class="k-primary chart_trainer-btn ml-2 small-btn" btn-data-id="MDM">MDM</button>
+                                                   </div>
+                                                </div>
+                                             </div> 
+                                             <!-- <div class="col-md-12 form-group btnDiv dsgccbtn"></div> -->
+                                          </div>
+                                          <div class="mb-0">
+                                             <div class="row">
+                                                <div id="left_dsgcc_grid"></div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+
+                                 </div>
+                              </li>
+
+                              <!-- E/M SUMMARY FOR CODERS PANEL BAR -->
+                              <li class="show-details-content panelbar" id="emsummary" data-id="ESC" >
+                                 <span class="k-link panelh">E/M SUMMARY FOR CODERS</span>
+                                 <div class="EM-summary">
+                                    <div class="pause_overlay"></div>
+                                    <div class="bg-column p-0">
+                                       <div id="EM-summary">
+                                          <ul>
+                                             <li class="k-state-active" inner-data-id="HPI">
+                                                HPI
+                                             </li>
+                                             <li inner-data-id="ROS">
+                                                ROS
+                                             </li>
+                                             <li id="stagedepend" inner-data-id="PFSH">
+                                                PFSH
+                                             </li>
+                                             <li inner-data-id="PE">
+                                                PE
+                                             </li>
+                                          </ul>
+                                          <!-- HPI -->
+                                          <div class="HPI-ct">
+                                             <div class="EM-btn btnDiv">
+                                                <button class="k-primary chart_trainer-btn ml-2 float-right" btn-data-id="HPI">HPI</button>
+                                             </div>
+                                             <div class="form-group col-sm-12 justify-content-start">
+                                                <label>Is there a history caveat?</label>
+                                                <div class="radio widthf radio-bg-none">
+                                                   <div class="radio-bg mr-0 ml3">
+                                                      <input class="k-radio" type="radio" id="HPI-ct-y" name="HPI-ct-y" value="1" required />
+                                                      <label for="HPI-ct-y" class="k-radio-label mb-0">
+                                                      <span>Yes</span>
+                                                      </label>
+                                                      <input class="k-radio" type="radio" id="HPI-ct-n" name="HPI-ct-y" value="0" required />
+                                                      <label for="HPI-ct-n" class="k-radio-label mb-0 mr-0">
+                                                      <span>No</span>
+                                                      </label>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                             <div class="form-group col-sm-12 justify-content-start">
+                                                <label>Is there a chief complaint documented?</label>
+                                                <div class="radio widthf radio-bg-none">
+                                                   <div class="radio-bg mr-0 ml3">
+                                                      <input class="k-radio" type="radio" id="HPIchief-ct-y" name="HPIchief-ct" value="1" required />
+                                                      <label for="HPIchief-ct-y" class="k-radio-label mb-0">
+                                                      <span>Yes</span>
+                                                      </label>
+                                                      <input class="k-radio" type="radio" id="HPIchief2-ct-n" name="HPIchief-ct" value="0" required />
+                                                      <label for="HPIchief2-ct-n" class="k-radio-label mb-0 mr-0">
+                                                      <span>No</span>
+                                                      </label>
+                                                   </div>
+                                                   <div class="hpiright"><div class="hpiright_inner">Established Problem?</div></div>
+                                                </div>
+                                             </div>
+                                             <div id="emhpis"></div>
+                                          </div>
+                                          <!-- ROS -->
+                                          <div class="ROS_CT">
+                                             <div class="EM-btn btnDiv">
+                                                <button class="k-primary chart_trainer-btn ml-2 float-right" btn-data-id="ROS">ROS</button>
+                                             </div>
+                                             
+                                             <div class="row">
+                                                <div class="form-group">
+                                                   <label>Is this section documented by the provider?</label>
+                                                   <div class="radio radio-bg-none">
+                                                      <div class="radio-bg justify-space-evenly ROS-First-rb">
+                                                         <input class="k-radio" id="doc_by_provider_yes" name="doc_by_provider" value="T" type="radio" checked="checked">
+                                                         <label for="doc_by_provider_yes" class="k-radio-label mb-0">
+                                                         <span>Yes</span>
+                                                         </label>
+                                                         <input class="k-radio" id="doc_by_provider_no" name="doc_by_provider" value="F" type="radio">
+                                                         <label for="doc_by_provider_no" class="k-radio-label mb-0 mr-0">
+                                                         <span>No</span>
+                                                         </label>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                             <div class="row">
+                                                <div class="form-group">
+                                                   <label>Is there a history caveat?</label>
+                                                   <div class="radio radio-bg-none">
+                                                      <div class="radio-bg justify-space-evenly ROS-First-rb">
+                                                         <input class="k-radio " id="ROS_CT2_yes" name="ROS_CT2" value="T" type="radio">
+                                                         <label for="ROS_CT2_yes" class="k-radio-label mb-0">
+                                                         <span>Yes</span>
+                                                         </label>
+                                                         <input class="k-radio" id="ROS_CT2_no" name="ROS_CT2" value="F" checked="checked" type="radio">
+                                                         <label for="ROS_CT2_no" class="k-radio-label mb-0 mr-0">
+                                                         <span>No</span>
+                                                         </label>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                             <div class="row">
+                                                <div class="form-group">
+                                                   <label>Were all systems reviewed?</label>
+                                                   <div class="radio radio-bg-none">
+                                                      <div class="radio-bg justify-space-evenly ROS-First-rb">
+                                                         <input class="k-radio " id="ROS_CT3_yes" name="ROS_CT3" value="T" type="radio">
+                                                         <label for="ROS_CT3_yes" class="k-radio-label mb-0">
+                                                         <span>Yes</span>
+                                                         </label>
+                                                         <input class="k-radio" id="ROS_CT3_no" name="ROS_CT3" value="F" checked="checked" type="radio">
+                                                         <label for="ROS_CT3_no" class="k-radio-label mb-0 mr-0">
+                                                         <span>No</span>
+                                                         </label>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                             <div class="ros-check-container row mb-3">
+                                                <div id="ros_abs"></div>
+                                                <div class="col-md-4">
+                                                   <div class="checkbox-l">
+                                                      <input type="checkbox" class="k-checkbox sopt roschk" name="Constitutionalct" id="Constitutionalct" value="Complete">
+                                                      <label class="k-checkbox-label" for="Constitutionalct">
+                                                      <span>Constitutional</span>
+                                                      </label>
+                                                   </div>
+                                                   <div class="checkbox-l">
+                                                      <input type="checkbox" class="k-checkbox sopt roschk" name="Eyes-ct" id="Eyesct" value="Complete">
+                                                      <label class="k-checkbox-label" for="Eyesct">
+                                                      <span>Eyes</span>
+                                                      </label>
+                                                   </div>
+                                                   <div class="checkbox-l">
+                                                      <input type="checkbox" class="k-checkbox sopt roschk" name="ENT-ct" id="ENTct" value="Complete">
+                                                      <label class="k-checkbox-label" for="ENTct">
+                                                      <span>Ears, nose, throat (ENT)</span>
+                                                      </label>
+                                                   </div>
+                                                   <div class="checkbox-l">
+                                                      <input type="checkbox" class="k-checkbox sopt roschk" name="Cardiovascular-ct" id="Cardiovascularct" value="Complete">
+                                                      <label class="k-checkbox-label" for="Cardiovascularct">
+                                                      <span>Cardiovascular</span>
+                                                      </label>
+                                                   </div>
+                                                   <div class="checkbox-l">
+                                                      <input type="checkbox" class="k-checkbox sopt roschk" name="Respiratory-ct" id="Respiratoryct" value="Complete">
+                                                      <label class="k-checkbox-label" for="Respiratoryct">
+                                                      <span>Respiratory</span>
+                                                      </label>
+                                                   </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                   <div class="checkbox-l">
+                                                      <input type="checkbox" class="k-checkbox sopt roschk" name="Gastrointestinalct" id="Gastrointestinalct" value="Complete">
+                                                      <label class="k-checkbox-label" for="Gastrointestinalct">
+                                                      <span>Gastrointestinal</span>
+                                                      </label>
+                                                   </div>
+                                                   <div class="checkbox-l">
+                                                      <input type="checkbox" class="k-checkbox sopt roschk" name="Genitourinary-ct" id="Genitourinaryct" value="Complete">
+                                                      <label class="k-checkbox-label" for="Genitourinaryct">
+                                                      <span>Genitourinary</span>
+                                                      </label>
+                                                   </div>
+                                                   <div class="checkbox-l">
+                                                      <input type="checkbox" class="k-checkbox sopt roschk" name="Musculoskeletal-ct" id="Musculoskeletalct" value="Complete">
+                                                      <label class="k-checkbox-label" for="Musculoskeletalct">
+                                                      <span>Musculoskeletal</span>
+                                                      </label>
+                                                   </div>
+                                                   <div class="checkbox-l">
+                                                      <input type="checkbox" class="k-checkbox sopt roschk" name="Integumentary-ct" id="Integumentaryct" value="Complete">
+                                                      <label class="k-checkbox-label" for="Integumentaryct">
+                                                      <span>Integumentary</span>
+                                                      </label>
+                                                   </div>
+                                                   <div class="checkbox-l">
+                                                      <input type="checkbox" class="k-checkbox sopt roschk" name="Neurological-ct" id="Neurologicalct" value="Complete">
+                                                      <label class="k-checkbox-label" for="Neurologicalct">
+                                                      <span>Neurological</span>
+                                                      </label>
+                                                   </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                   <div class="checkbox-l">
+                                                      <input type="checkbox" class="k-checkbox sopt roschk" name="Psychiatricct" id="Psychiatricct" value="Complete">
+                                                      <label class="k-checkbox-label" for="Psychiatricct">
+                                                      <span>Psychiatric</span>
+                                                      </label>
+                                                   </div>
+                                                   <div class="checkbox-l">
+                                                      <input type="checkbox" class="k-checkbox sopt roschk" name="Endocrine-ct" id="Endocrinect" value="Complete">
+                                                      <label class="k-checkbox-label" for="Endocrinect">
+                                                      <span>Endocrine</span>
+                                                      </label>
+                                                   </div>
+                                                   <div class="checkbox-l">
+                                                      <input type="checkbox" class="k-checkbox sopt roschk" name="Hematological-lymphatic-ct" id="Hematological-lymphaticct" value="Complete">
+                                                      <label class="k-checkbox-label" for="Hematological-lymphaticct">
+                                                      <span>Hematological/lymphatic</span>
+                                                      </label>
+                                                   </div>
+                                                   <div class="checkbox-l">
+                                                      <input type="checkbox" class="k-checkbox sopt roschk" name="Allergic-immunologic-ct" id="Allergic-immunologicct" value="Complete">
+                                                      <label class="k-checkbox-label" for="Allergic-immunologic">
+                                                      <span>Allergic/immunologic</span>
+                                                      </label>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                          </div>
+                                          <div class="PFSH-CT">
+                                             <div class="row">
+                                                <div class="EM-btn btnDiv">
+                                                   <button class="k-primary chart_trainer-btn ml-2 float-right" btn-data-id="PFSH">PFSH</button>
+                                                </div>
+                                                <div class="row">
+                                                   <div class="form-group mainlabel">
+                                                      <label>Past Medical/Surgical History Documented?</label>
+                                                      <div class="radio radio-bg-none">
+                                                         <div class="radio-bg justify-space-evenly ROS-First-rb">
+                                                            <input class="k-radio " id="PFSH_CT_yes" name="PFSH_CT" value="1" type="radio">
+                                                            <label for="PFSH_CT_yes" class="k-radio-label mb-0">
+                                                            <span>Yes</span>
+                                                            </label>
+                                                            <input class="k-radio" id="PFSH_CT_no" name="PFSH_CT" value="0" type="radio">
+                                                            <label for="PFSH_CT_no" class="k-radio-label mb-0 mr-0">
+                                                            <span>No</span>
+                                                            </label>
+                                                         </div>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                                <div class="row">
+                                                   <div class="form-group mainlabel">
+                                                      <label>Family History Documented?</label>
+                                                      <div class="radio radio-bg-none">
+                                                         <div class="radio-bg justify-space-evenly ROS-First-rb">
+                                                            <input class="k-radio " id="PFSH2_CT_yes" name="PFSH2_CT" value="1" type="radio">
+                                                            <label for="PFSH2_CT_yes" class="k-radio-label mb-0">
+                                                            <span>Yes</span>
+                                                            </label>
+                                                            <input class="k-radio" id="PFSH2_CT_no" name="PFSH2_CT" value="0" type="radio">
+                                                            <label for="PFSH2_CT_no" class="k-radio-label mb-0 mr-0">
+                                                            <span>No</span>
+                                                            </label>
+                                                         </div>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                                <div class="row">
+                                                   <div class="form-group mainlabel">
+                                                      <label>Social History Documented?</label>
+                                                      <div class="radio radio-bg-none">
+                                                         <div class="radio-bg justify-space-evenly ROS-First-rb">
+                                                            <input class="k-radio " id="PFSH3_CT_yes" name="PFSH3_CT" value="1" type="radio">
+                                                            <label for="PFSH3_CT_yes" class="k-radio-label mb-0">
+                                                            <span>Yes</span>
+                                                            </label>
+                                                            <input class="k-radio" id="PFSH3_CT_no" name="PFSH3_CT" value="0" type="radio">
+                                                            <label for="PFSH3_CT_no" class="k-radio-label mb-0 mr-0">
+                                                            <span>No</span>
+                                                            </label>
+                                                         </div>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                             </div>
+                                          </div>
+                                          <div class="PE-ct">
+                                             <div class="EM-btn btnDiv">
+                                                <button class="k-primary chart_trainer-btn ml-2 float-right" btn-data-id="PE">PE</button>
+                                             </div>
+                                             <div class="row">
+                                               <div class="form-group col-lg-12 justify-content-start mainlabel">
+                                                     <label>Fever ≥ 100.5°F or 38.0°C documented in the ED:</label>
+                                                     <div class="radio radio-bg-none">
+                                                        <div class="radio-bg justify-space-evenly mr-0">
+                                                           <input class="k-radio" type="radio" id="physical_yes" name="pe-fev" value="T" />
+                                                           <label for="physical_yes" class="k-radio-label mb-0">
+                                                           <span>Yes</span>
+                                                           </label>
+                                                           <input class="k-radio" type="radio" id="physical_no" name="pe-fev" value="F" checked="checked" />
+                                                           <label for="physical_no" class="k-radio-label mb-0 mr-0">
+                                                           <span>No</span>
+                                                           </label>
+                                                        </div>
+                                                     </div>
+                                               </div>
+                                                <div class="col-md-6">
+                                                   <strong>ORGAN SYSTEMS DOCUMENTED</strong>
+                                                   <div class="checkbox-l">
+                                                      <input type="checkbox" class="k-checkbox sopt pechk organs" name="Constitutional-PECT" id="Constitutional-PECT" value="Complete">
+                                                      <label class="k-checkbox-label" for="Constitutional-PECT">
+                                                      <span>Constitutional</span>
+                                                      </label>
+                                                   </div>
+                                                   <div class="checkbox-l">
+                                                      <input type="checkbox" class="k-checkbox sopt pechk organs" name="Eyes-PECT" id="Eyes-PECT" value="Complete">
+                                                      <label class="k-checkbox-label" for="Eyes-PECT">
+                                                      <span>Eyes</span>
+                                                      </label>
+                                                   </div>
+                                                   <div class="checkbox-l">
+                                                      <input type="checkbox" class="k-checkbox sopt pechk organs" name="Ent-PECT" id="Ent-PECT" value="Complete">
+                                                      <label class="k-checkbox-label" for="Ent-PECT">
+                                                      <span>Ears, Nose, Throat (ENT)</span>
+                                                      </label>
+                                                   </div>
+                                                   <div class="checkbox-l">
+                                                      <input type="checkbox" class="k-checkbox sopt pechk organs" name="Cardiovascular-PECT" id="Cardiovascular-PECT" value="Complete">
+                                                      <label class="k-checkbox-label" for="Cardiovascular-PECT">
+                                                      <span>Cardiovascular</span>
+                                                      </label>
+                                                   </div>
+                                                   <div class="checkbox-l">
+                                                      <input type="checkbox" class="k-checkbox sopt pechk organs" name="Respiratory-PECT" id="Respiratory-PECT" value="Complete">
+                                                      <label class="k-checkbox-label" for="Respiratory-PECT">
+                                                      <span>Respiratory</span>
+                                                      </label>
+                                                   </div>
+                                                   <div class="checkbox-l">
+                                                      <input type="checkbox" class="k-checkbox sopt pechk organs" name="Gastrointestinal-PECT" id="Gastrointestinal-PECT" value="Complete">
+                                                      <label class="k-checkbox-label" for="Gastrointestinal-PECT">
+                                                      <span>Gastrointestinal</span>
+                                                      </label>
+                                                   </div>
+                                                   <div class="checkbox-l">
+                                                      <input type="checkbox" class="k-checkbox sopt pechk organs" name="Genitourinary-PECT" id="Genitourinary-PECT" value="Complete">
+                                                      <label class="k-checkbox-label" for="Genitourinary-PECT">
+                                                      <span>Genitourinary</span>
+                                                      </label>
+                                                   </div>
+                                                   <div class="checkbox-l">
+                                                      <input type="checkbox" class="k-checkbox sopt pechk organs" name="Musculoskeletal-PECT" id="Musculoskeletal-PECT" value="Complete">
+                                                      <label class="k-checkbox-label" for="Musculoskeletal-PECT">
+                                                      <span>Musculoskeletal</span>
+                                                      </label>
+                                                   </div>
+                                                   <div class="checkbox-l">
+                                                      <input type="checkbox" class="k-checkbox sopt pechk organs" name="Skin-PECT" id="Skin-PECT" value="Complete">
+                                                      <label class="k-checkbox-label" for="Skin-PECT">
+                                                      <span>Skin</span>
+                                                      </label>
+                                                   </div>
+                                                   <div class="checkbox-l">
+                                                      <input type="checkbox" class="k-checkbox sopt pechk organs" name="Neurologic-PECT" id="Neurologic-PECT" value="Complete">
+                                                      <label class="k-checkbox-label" for="Neurologic-PECT">
+                                                      <span>Neurologic</span>
+                                                      </label>
+                                                   </div>
+                                                   <div class="checkbox-l">
+                                                      <input type="checkbox" class="k-checkbox sopt pechk organs" name="Psychiatric-PECT" id="Psychiatric-PECT" value="Complete">
+                                                      <label class="k-checkbox-label" for="Psychiatric-PECT">
+                                                      <span>Psychiatric</span>
+                                                      </label>
+                                                   </div>
+                                                   <div class="checkbox-l">
+                                                      <input type="checkbox" class="k-checkbox sopt pechk organs" name="HLI-PECT" id="HLI-PECT" value="Complete">
+                                                      <label class="k-checkbox-label" for="HLI-PECT">
+                                                      <span>Hematologic / Lymphatic / Immunologic</span>
+                                                      </label>
+                                                   </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                   <strong>BODY AREAS DOCUMENTED</strong>
+                                                   <div class="checkbox-l">
+                                                      <input type="checkbox" class="k-checkbox sopt pechk" name="HF-PECT" id="HF-PECT" value="Complete">
+                                                      <label class="k-checkbox-label" for="HF-PECT">
+                                                      <span>Head (Face)</span>
+                                                      </label>
+                                                   </div>
+                                                   <div class="checkbox-l">
+                                                      <input type="checkbox" class="k-checkbox sopt pechk" name="Neck-PECT" id="Neck-PECT" value="Complete">
+                                                      <label class="k-checkbox-label" for="Neck-PECT">
+                                                      <span>Neck</span>
+                                                      </label>
+                                                   </div>
+                                                   <div class="checkbox-l">
+                                                      <input type="checkbox" class="k-checkbox sopt pechk" name="CBA-PECT" id="CBA-PECT" value="Complete">
+                                                      <label class="k-checkbox-label" for="CBA-PECT">
+                                                      <span>Chest (Breasts / Axillae)</span>
+                                                      </label>
+                                                   </div>
+                                                   <div class="checkbox-l">
+                                                      <input type="checkbox" class="k-checkbox sopt pechk" name="Abdomen-PECT" id="Abdomen-PECT" value="Complete">
+                                                      <label class="k-checkbox-label" for="Abdomen-PECT">
+                                                      <span>Abdomen</span>
+                                                      </label>
+                                                   </div>
+                                                   <div class="checkbox-l">
+                                                      <input type="checkbox" class="k-checkbox sopt pechk" name="GGB-PECT" id="GGB-PECT" value="Complete">
+                                                      <label class="k-checkbox-label" for="GGB-PECT">
+                                                      <span>Genitalia, Groin, Buttocks</span>
+                                                      </label>
+                                                   </div>
+                                                   <div class="checkbox-l">
+                                                      <input type="checkbox" class="k-checkbox sopt pechk" name="BIS-PECT" id="BIS-PECT" value="Complete">
+                                                      <label class="k-checkbox-label" for="BIS-PECT">
+                                                      <span>Back (including Spine)</span>
+                                                      </label>
+                                                   </div>
+                                                   <div class="checkbox-l">
+                                                      <input type="checkbox" class="k-checkbox sopt pechk" name="EE-PECT" id="EE-PECT" value="Complete">
+                                                      <label class="k-checkbox-label" for="EE-PECT">
+                                                      <span>Each Extremity</span>
+                                                      </label>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                          </div>
+                                          <!-- <button class="k-primary chart_trainer-btn ml-2 float-right pl-4 pr-4 width1">CHECK ANSWER</button> -->
+                                       </div>
+                                    </div>
+                                 </div>
+                              </li>
+
+                              <!-- PROCEDURES PANEL BAR -->
+                              <li class="panelbar" id="procedures">
+                                 <span class="k-link panelh prohead">PROCEDURES</span>
+                                 <div class="procedures-ct">
+                                    <div class="pause_overlay"></div>
+                                    <div class="bg-column col-lg-12">
+                                       <div class="row">
+                                          <div class="col-md-10 padding-r">
+                                             <div class="form-group">
+                                                <label>Was there a procedure performed?</label>
+                                                <div class="radio radio-bg-none ROS3_label_first_radio">
+                                                   <div class="radio-bg justify-space-evenly ROS-First-rb mr-0">
+                                                      <input class="k-radio " id="PROCEDURES_CT_yes" name="PROCEDURES_CT" value="T" type="radio">
+                                                      <label for="PROCEDURES_CT_yes" class="k-radio-label mb-0">
+                                                      <span>Yes</span>
+                                                      </label>
+                                                      <input class="k-radio" id="PROCEDURES_CT_no" name="PROCEDURES_CT" value="F" checked="checked" type="radio">
+                                                      <label for="PROCEDURES_CT_no" class="k-radio-label mb-0 mr-0">
+                                                      <span>No</span>
+                                                      </label>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                             <div class="form-group">
+                                                <label>Procedure CPT</label>
+                                                <input type="text"  placeholder="" />
+                                             </div>
+                                             <div class="form-group">
+                                                <label>CPT Search</label>
+                                                <input type="text" id="procedures_cpt_keyword"  placeholder="Enter a keyword" />
+                                             </div>
+                                          </div>
+                                          <div class="col-md-2 padding-l btnDiv">
+                                             <button class="k-primary chart_trainer-btn" btn-data-id="MDM">MDM</button>
+                                             <button class="k-primary chart_trainer-btn" btn-data-id="PE">PE</button>
+                                             <button class="k-primary chart_trainer-btn" btn-data-id="I&P">I&P</button>
+                                             <button class="k-primary chart_trainer-btn mb-2" btn-data-id="PFSH">PFSH</button>
+                                          </div>
+                                       </div>
+                                       <div class="mb-0">
+                                          <div class="row">
+                                             <div class="col-lg-12">
+                                                <div id="procedure_grid"></div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div class="row mt-3">
+                                          <div class="col-md-10">
+                                             <div class="form-group">
+                                                <label>Modifier</label>
+                                                <input type="text" id="procedures_modifier" name="procedures_modifier[]" disabled />
+                                             </div>
+                                             <div class="form-group">
+                                                <label>Diagnosis ICD10</label>
+                                                <input type="text" id="procedures_icd10" name="procedures_icd10[]" disabled />
+                                             </div>
+                                             <div class="form-group">
+                                                <label>Primary Provider</label>
+                                                <select id="procedures_primary_provider" name="procedures_primary_provider[]"></select>
+                                             </div>
+                                             <div class="form-group">
+                                                <label>Secondary Provider</label>
+                                                <select id="procedures_secondary_provider" name="procedures_secondary_provider[]"></select>
+                                             </div>
+                                             <div class="form-group">
+                                                <label>Were any additional procedures performed?</label>
+                                                <div class="radio radio-bg-none">
+                                                   <div class="radio-bg justify-space-evenly ROS-First-rb mr-0">
+                                                      <input class="k-radio " id="PROCEDURES_CT2_yes" name="PROCEDURES2_CT" value="T" type="radio" disabled />
+                                                      <label for="PROCEDURES_CT2_yes" class="k-radio-label mb-0">
+                                                      <span>Yes</span>
+                                                      </label>
+                                                      <input class="k-radio" id="PROCEDURES_CT2_no" name="PROCEDURES2_CT" value="F" checked="checked" type="radio" disabled />
+                                                      <label for="PROCEDURES_CT2_no" class="k-radio-label mb-0 mr-0">
+                                                      <span>No</span>
+                                                      </label>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                          </div>
+                                          <div id="additional_procedures"></div>
+                                          <div class="widthfull">
+                                             <button class="k-primary chart_trainer-btn ml-2 float-right pl-4 pr-4 width1">CHECK ANSWER</button>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </li>
+                              <!-- PROVIDERS PANEL BAR -->
+                              <li class="panelbar" id="providers">
+                                 <span class="k-link panelh">PROVIDERS</span>
+                                 <div class="providersct">
+                                    <div class="pause_overlay"></div>
+                                    <div class="bg-column">
+                                       <div class="row">
+                                          <div class="col-md-10 padding-r">
+                                             <div class="form-group justify-content-start">
+                                                <label>Is this a split/shared visit?</label>
+                                                <div class="radio radio-bg-none">
+                                                   <div class="radio-bg justify-space-evenly ROS-First-rb mr-0">
+                                                      <input class="k-radio " id="PROVIDERS_CT_yes" name="PROVIDERS_CT" value="T" type="radio">
+                                                      <label for="PROVIDERS_CT_yes" class="k-radio-label mb-0">
+                                                      <span>Yes</span>
+                                                      </label>
+                                                      <input class="k-radio" id="PROVIDERS_no" name="PROVIDERS_CT" value="F" checked="checked" type="radio">
+                                                      <label for="PROVIDERS_no" class="k-radio-label mb-0 mr-0">
+                                                      <span>No</span>
+                                                      </label>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                             <div id="conditional_provider1"></div>
+                                          </div>
+                                          <div class="col-md-2 padding-l btnDiv">
+                                             <button class="k-primary chart_trainer-btn" btn-data-id="I&P">I&P</button>
+                                             <button class="k-primary chart_trainer-btn" btn-data-id="ADD">ADD</button>
+                                          </div>
+                                       </div>
+                                       <div class="row">
+                                          <div class="col-md-12">
+                                             <div id="conditional_provider2"></div>
+
+                                             <div class="form-group justify-content-start">
+                                                <label>Was there a transfer of care?</label>
+                                                <div class="radio radio-bg-none">
+                                                   <div class="radio-bg justify-space-evenly ROS-First-rb mr-0">
+                                                      <input class="k-radio " id="PROVIDERS3_CT_yes" name="PROVIDERS3_CT" value="T" type="radio">
+                                                      <label for="PROVIDERS3_CT_yes" class="k-radio-label mb-0">
+                                                      <span>Yes</span>
+                                                      </label>
+                                                      <input class="k-radio" id="PROVIDERS3_no" name="PROVIDERS3_CT" value="F" checked="checked" type="radio">
+                                                      <label for="PROVIDERS3_no" class="k-radio-label mb-0 mr-0">
+                                                      <span>No</span>
+                                                      </label>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                             <div id="transfer_container"></div>
+                                             
+                                          </div>
+                                       </div>
+
+                                    </div>
+
+
+                                 </div>
+                              </li>
+
+
+                              <li class="panelbar" id="disposition">
+                                 <span class="k-link panelh">DISPOSITION</span>
+                                 <div class="impression_plan">
+                                    <div class="bg-column">
+                                       <div class="radio radio-bg-none">
+                                          <div class="radio-bg justify-space-evenly mr-0 disposition_container">
+                                             <input class="k-radio " id="disposition1" name="disposition" value="Home" type="radio">
+                                             <label for="disposition1" class="k-radio-label mb-0">
+                                             <span>Home</span>
+                                             </label>
+                                             <input class="k-radio" id="disposition2" name="disposition" value="Inpatient" type="radio">
+                                             <label for="disposition2" class="k-radio-label mb-0 mr-0">
+                                             <span>Inpatient</span>
+                                             </label>
+
+                                             <input class="k-radio" id="disposition3" name="disposition" value="Observation" type="radio">
+                                             <label for="disposition3" class="k-radio-label mb-0 mr-0">
+                                             <span>Observation</span>
+                                             </label>
+
+                                             <input class="k-radio" id="disposition4" name="disposition" value="Transfer" type="radio">
+                                             <label for="disposition4" class="k-radio-label mb-0 mr-0">
+                                             <span>Transfer</span>
+                                             </label>
+
+                                             <input class="k-radio" id="disposition5" name="disposition" value="Expired" type="radio">
+                                             <label for="disposition5" class="k-radio-label mb-0 mr-0">
+                                             <span>Expired</span>
+                                             </label>
+
+                                             <input class="k-radio" id="disposition6" name="disposition" value="AMA" type="radio">
+                                             <label for="disposition6" class="k-radio-label mb-0 mr-0">
+                                             <span>AMA</span>
+                                             </label>
+
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </li>
+
+
+                              <!--  CONCLUSION PANEL BAR -->
+                              <li class="panelbar" id="conclusion">
+                                 <span class="k-link panelh conhead">CONCLUSION</span>
+                                 <div class="CONCLUSION_CT">
+                                    <div class="pause_overlay"></div>
+                                    <div class="bg-column">
+                                       
+                                       <div class="row">
+                                          <div class="conclutionoverlay"></div>
+                                          <div class="col-md-12">
+
+                                             <div id="conclusiongrid"></div>
+                                             <div id="conclusionfeedback_container">
+                                                <h3 id="conclusionfeedback_heading"></h3>
+                                                <div id="conclusionfeedback"></div>
+                                             </div>
+                                             
+                                             
+                                             <p class="conclusionp">Enter any comments, below, and select all categories that apply:</p>
+                                             <div class="row">
+                                                <div class="col-md-7"><textarea class="concomment" id="comment1" name="comment"></textarea></div>
+                                                <div class="col-md-5 conclusionr">
+
+                                                   <div class="form-group padding0">                          
+                                                      <input type="checkbox" class="k-checkbox sopt conclusionchk" id="cptchk" value="cpt">
+                                                      <label class="k-checkbox-label pb-0" for="cptchk">
+                                                      <span>CPT</span>
+                                                      </label>
+                                                   </div>
+                                                   <div class="form-group padding0">                          
+                                                      <input type="checkbox" class="k-checkbox sopt conclusionchk" id="providerchk" value="cpt">
+                                                      <label class="k-checkbox-label pb-0" for="providerchk">
+                                                      <span>Provider(s)</span>
+                                                      </label>
+                                                   </div>
+                                                   <div class="form-group padding0">                          
+                                                      <input type="checkbox" class="k-checkbox sopt conclusionchk" id="icdchk" value="cpt">
+                                                      <label class="k-checkbox-label pb-0" for="icdchk">
+                                                      <span>ICD(s)</span>
+                                                      </label>
+                                                   </div>
+                                                   <div class="form-group padding0">                          
+                                                      <input type="checkbox" class="k-checkbox sopt conclusionchk" id="miscellaneous" value="cpt">
+                                                      <label class="k-checkbox-label pb-0" for="miscellaneous">
+                                                      <span>Miscellaneous</span>
+                                                      </label>
+                                                   </div>
+                                                   <div class="form-group padding0">
+                                                   <button id="saveChanges" class="k-primary chart_trainer-btn">SUBMIT</button>
+                                                   <button id="next" class="k-primary chart_trainer-btn btndisabled">NEXT</button>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                            
+                                          </div>
+                                       </div>
+
+                                       
+                                    </div>
+                                 </div>
+                              </li>
+                           </ul>
+                        </div>
+                        <div class="lower_buttons">
+                           <input type="button" id="pause" name="pause" value="Pause" onclick="pauseTest();" class="k-primary chart_trainer-btn" />
+                           <input type="button" id="resume" name="resume" value="Resume" onclick="resumeTest();" class="k-primary chart_trainer-btn" />
+                           <input type="button" id="test_completed" name="test_completed" onclick="completeTest();" value="Finish & Save" class="k-primary chart_trainer-btn" />
+                           <div id="test_progress"></div>
+                        </div>
+                     </div>
+                     <div class="clearfix"></div>
+                     <!-- CHART TRAINER CONTENT END-->
+                  </div>
+               </div>
+
+               <!-- CHART TRAINER RIGHT SIDE TABS -->
+               <div class="col-sm-6 mtop-5 padding-l trainer_right" style="display: none;"> 
+                  <div class="browser_height">
+                     <div class="browser_scroller">
+                        <ul id="right_panelbar">
+                           <li class="k-state-active" id="chart">
+                              <span class="k-link k-state-selected">CHART</span>
+                              <div class="mt-2">
+                                 <div id="charttrainer_bottom2">
+                                    <ul class="tabs_li" data-scrollable="true" data-selected-index="1">
+                                       <li inner-data-id="BI" class="k-state-active">
+                                          BI
+                                       </li>
+                                       <li inner-data-id="HPI">
+                                          HPI
+                                       </li>
+                                       <li inner-data-id="ROS">
+                                          ROS
+                                       </li>
+                                       <li inner-data-id="PFSH">
+                                          PFSH
+                                       </li>
+                                       <li inner-data-id="PE">
+                                          PE
+                                       </li>
+                                       <li inner-data-id="MDM">
+                                          MDM
+                                       </li>
+                                       <li inner-data-id="I&P">
+                                          I&P
+                                       </li>
+                                       
+                                       <li inner-data-id="ADD">
+                                          ADD
+                                       </li>
+                                       <li inner-data-id="ORD">
+                                          ORD
+                                       </li>
+                                       <li inner-data-id="ICD10" class="nonapplicant">
+                                          ICD10
+                                       </li>
+                                    
+                                    </ul>
+                                    <!-- BASIC INFORMATION DETAIL -->
+                                    <div class="ct-dmo_details toptab" inner-data-id="BI"> 
+                                       <div id="bi_image"></div>
+                                    </div>
+
+                                    <!-- HPI DETAIL -->
+                                    <div class="hpi_details toptab" inner-data-id="HPI">
+                                       <div id="hpi_image"></div>
+                                    </div>
+
+                                    <!-- ROS DETAIL -->
+                                    <div class="toptab" inner-data-id="ROS">
+                                       <div id="ros_image"></div>
+                                    </div>
+
+                                    <!-- PFSH DETAIL-->
+                                    <div class="toptab" inner-data-id="PFSH">
+                                       <div id="pfsh_image"></div>
+                                    </div>
+
+                                    <!-- PE DETAIL-->
+                                    <div class="toptab" inner-data-id="PE">
+                                       <div id="pe_image"></div>
+                                    </div>
+
+                                    <!-- MDM DETAIL -->
+                                    <div class="toptab" inner-data-id="MDM">
+                                      
+                                       <div id="mdm_image"></div>
+                                    </div>
+
+                                    <!-- IP DETAIL -->
+                                    <div class="toptab" inner-data-id="I&P">
+                                       <div id="ip_image"></div>
+                                    </div>
+
+                                    <!-- ADD -->
+                                    <div class="toptab" inner-data-id="ADD">
+                                       
+                                       <div id="aa_image"></div>
+                                    </div>
+
+                                    <!-- ORD DETAIL -->
+                                    <div class="toptab" inner-data-id="ORD">
+                                       <div id="ord_image"></div>
+                                    </div>
+                                    
+                                    <!-- ICD10 DETAIL -->
+                                    <div class="toptab" inner-data-id="ICD10" class="nonapplicant">
+                                       <div id="icd10_graph"></div>
+                                    </div>
+                                    
+                                    <!-- HS DETAIL-->
+                                    <!-- <div class="toptab" inner-data-id="HS">
+                                       <div id="hs_image"></div>
+                                    </div> -->
+                                 </div>
+                              </div>
+                              <!-- CHART TRAINER RIGHT SIDE TABS END -->
+                           </li>
+                           <li id="guidelines">
+                              GUIDELINES
+                              <div class="mt-2">
+                              <!-- CHART TRAINER BOTTOM -->
+                               <div class="view-details-content">
+                                 <div id="chart_loader_tabstrip2">
+                                    <ul class="tabs_li" data-scrollable="true" data-selected-index="2">
+                                       <li class="k-state-active" data-id="DMO">
+                                          Diagnosis &/or Management Options
+                                       </li>
+                                       <li data-id="ACD">
+                                          Amount and Complexity of Data
+                                       </li>
+                                       <li data-id="ORT">
+                                          Overall Risk
+                                       </li>
+                                       <li data-id="ESC">
+                                          E/M Summary for Coders
+                                       </li>
+                                    </ul>
+                                    <!-- Diagnosis &/or Management Options -->
+                                    <!-- Diagnosis &/or Management Options -->
+                                    <div class="diagnosis_management_options tabDiv"data-id="DMO">
+                                      <div class="col-lg-12 padding-l padding-r">
+                                         <p> Indicate the number of each type of problem category below. Multiply the number of the occurrence of the problem by the value for each category total. Add each category down to determine the total value. *An established problem is defined as returning to the same ED (or ED within the same client group) within 72 hours (3 calendar days) for the same complaint.</p>
+                                         <table width="100%" border="0">
+                                          <thead>
+                                             <th>Category of Problem(S)</th>
+                                             <th style="width:160px;">Occurrence of Problem</th>
+                                             <th style="width:150px;">X Value</th>
+                                             <th style="width:110px;">Category Total</th>
+                                          </thead>
+                                          <tr>
+                                             <td>
+                                              Self-limited or minor
+                                             </td>
+                                             <td></td>
+                                             <td>1</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>
+                                              Established problem, stable, improved
+                                             </td>
+                                             <td></td>
+                                             <td>1</td>
+                                             <td></td>
+                                          </tr>
+                                          <tr>
+                                             <td>
+                                              Established problem, worsening
+                                             </td>
+                                             <td></td>
+                                             <td>2</td>
+                                             <td></td>
+                                          </tr>  
+                                             <td>
+                                              New problem, no additional work up: ≤ two ancillary studies (e.g. lab, x-ray, EKG and no special studies ordered).
+                                             </td>
+                                             <td></td>
+                                             <td>3</td>
+                                             <td></td>
+                                          </tr> 
+                                             <td>
+                                              New problem, additional work up: 3 or more ancillary studies or any special study. Admissions and transfers are considered additional work up even if no ancillary tests were performed in ED/Clinic.
+                                             </td>
+                                             <td></td>
+                                             <td>4</td>
+                                             <td></td>
+                                          </tr> 
+                                             <td colspan="3" align="right">
+                                              <b>Total Value</b>
+                                             </td>
+                                             <td></td>
+                                          </tr>                                                                                
+                                         </table>
+                                      </div>
+                                    </div>
+                                    <!-- AMOUNT AND COMPLEXITY OF DATA -->
+                                    <div class="amount_complexity tabDiv" data-id="ACD">
+                                      <div class="col-lg-12 padding-l padding-r">
+                                         <p> Indicate each type of data that is documented by circling the corresponding value. Add all the values circled to find the total data.</p>
+                                         <table width="100%" border="0">
+                                          <thead>
+                                             <th>Data Type</th>
+                                             <th style="width:100px;">Vale</th>
+                                          </thead>
+                                          <tr>
+                                             <td>
+                                              Review &/or ordering of clinical lab studies 
+                                             </td>
+                                             <td>1</td>
+                                          </tr>
+                                          <tr>
+                                             <td>
+                                              Review &/or ordering of radiological studies (does not include EKG or cardiac cath) 
+                                             </td>
+                                             <td>1</td>
+                                          </tr>
+                                          <tr>
+                                             <td>
+                                              Review &/or ordering of non-invasive medicine studies (EKG, cardiac cath) 
+                                             </td>
+                                             <td>1</td>
+                                          </tr>
+                                          <tr>
+                                             <td>
+                                              Discussion of diagnostic studies with interpreting physician 
+                                             </td>
+                                             <td>1</td>
+                                          </tr>
+                                          <tr>
+                                             <td>
+                                              Independent review of diagnostic studies with interpretation 
+                                             </td>
+                                             <td>2</td>
+                                          </tr>
+                                          <tr>
+                                             <td>
+                                              Decision to obtain old records &/or gather data from source other than patient
+                                             </td>
+                                             <td>1</td>
+                                          </tr>
+                                          <tr>
+                                             <td>
+                                              Review and summarization of old medical records or other data OR discussion with another health care provider
+                                             </td>
+                                             <td>2</td>
+                                          </tr>
+                                          <tr>
+                                             <td align="right">
+                                                <b>Total Value</b>
+                                             </td>
+                                             <td></td>
+                                          </tr>                                                                                                                              
+                                         </table>
+                                      </div>
+                                    </div>
+                                    <!-- OVERALL RISK -->
+                                    <div class="overall_risk tabDiv" data-id="ORT">
+                                       <div id="current_dsgcc_result"></div>
+                                    </div>
+                                    <!-- E/M Summary for Coders -->
+                                    <div class="EM_summary_coders tabDiv" data-id="ESC">
+                                     <label>Number of Charting Elements Needed to Support the Level in Addition to a Documented Chief Complaint</label>
+                                         <table width="100%" border="0">
+                                          <thead>
+                                             <th></th>
+                                             <th>99281</th>
+                                             <th>99282</th>
+                                             <th>99283</th>
+                                             <th>99284</th>
+                                             <th>99285</th>
+                                          </thead>
+                                          <tr>
+                                             <td>HPI</td>
+                                             <td>1</td>
+                                             <td>1</td>
+                                             <td>1</td>
+                                             <td>4</td>
+                                             <td>4</td>
+                                          </tr>
+                                          <tr>
+                                             <td>ROS</td>
+                                             <td>---</td>
+                                             <td>1</td>
+                                             <td>1</td>
+                                             <td>2</td>
+                                             <td>10</td>
+                                          </tr>
+                                          <tr>
+                                             <td>PFSH</td>
+                                             <td>---</td>
+                                             <td>---</td>
+                                             <td>---</td>
+                                             <td>1</td>
+                                             <td>2</td>
+                                          </tr>
+                                          <tr>
+                                             <td>EXAM</td>
+                                             <td>1</td>
+                                             <td>2</td>
+                                             <td>2</td>
+                                             <td>3-7</td>
+                                             <td>8 Organ <br/> Systems</td>
+                                          </tr>
+                                         </table>
+                                    </div>
+                                 </div>            
+                               </div>
+                               </div>
+                           </li> 
+                           <li id="evaluationgrid">
+                              EVALUATION GRID
+                              <div class="mt-2">
+                              <!-- CHART TRAINER RIGHT SIDE TABS EVALUATION GRID START-->
+                                 <div class="col-lg-12 col-md-12 evalutiongrid">
+                                    <div id="evalution_bar"></div>
+                                 </div>
+                              </div>
+                                    </li>
+                                 </ul>
+                              </div>
+                              </div>
+                           </li>
+                        </ul>
+                     </div>
+                      <!-- CHART TRAINER RIGHT SIDE TABS EVALUATION GRID END-->
+                  </div>
+               </div>
+
+               
+            </div>
+         </div>
+   </div>
+</div>
+   <div id="dialog"></div>
+</div>
+<!-- END OF CONTENT WRAPPER -->
